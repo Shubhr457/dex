@@ -1,5 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
-
+require('dotenv').config();
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity:"0.8.20",
@@ -25,8 +25,8 @@ module.exports = {
   // },
   networks:{
     amoy:{
-      url:"https://polygon-amoy.g.alchemy.com/v2/YfWxvfSqt0WZfWRiOtXQvs-gaI9Kz0QI",
-      accounts:["eedd5eed4e6aab6ae6987b0dd6e700890907e2ee21c080037430bfe44cdf82d7"]
+      url:`${process.env.POLYGON_AMOY_RPC_URL}`,
+      accounts:[`${process.env.PRIVATE_KEY}`]
     }
   }
 };
