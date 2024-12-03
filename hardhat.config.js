@@ -25,8 +25,13 @@ module.exports = {
   // },
   networks:{
     amoy:{
-      url:`${process.env.POLYGON_AMOY_RPC_URL}`,
-      accounts:[`${process.env.PRIVATE_KEY}`]
+      url:"https://polygon-amoy.g.alchemy.com/v2/YfWxvfSqt0WZfWRiOtXQvs-gaI9Kz0QI",
+      accounts:[`0x${process.env.PRIVATE_KEY}`]
     }
-  }
+  },
+  etherscan: {
+    apiKey: {
+          polygonAmoy:"V2YP4FYKXUCFNA3M38K1JCHT38EJPMDZE7"
+    },
+  },
 };
