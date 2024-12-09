@@ -13,7 +13,7 @@ import "@uniswap/lib/contracts/libraries/FixedPoint.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
-contract MyDEX is Ownable, ReentrancyGuard {
+contract New is Ownable, ReentrancyGuard {
     // Router and factory interfaces
     IUniswapV2Router02 public uniswapRouter;
     IUniswapV2Factory public uniswapFactory;
@@ -172,7 +172,7 @@ contract MyDEX is Ownable, ReentrancyGuard {
     }
 
     // Withdraw ERC20 tokens in case of emergency
-    function emergencyWithdraw(address token) external {
+    function emergencyWithdraw(address token) external onlyOwner {
         uint256 balance = IERC20(token).balanceOf(address(this));
         require(balance > 0, "No balance available");
 
@@ -187,4 +187,3 @@ contract MyDEX is Ownable, ReentrancyGuard {
     // Fallback function to receive Ether
     receive() external payable {}
 }
-
